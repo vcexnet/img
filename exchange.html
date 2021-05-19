@@ -47,7 +47,7 @@
 		</style>
 	</head>
 	<body style="margin: 0;">
-		<div id="languageCN">
+		<div id="languageCN" style="display: none;">
 			<div class="head-div">
 				<span class="head-text">支持交易所</span>
 				<!-- <button id="change">中英文切换</button> -->
@@ -82,7 +82,7 @@
 							<i class="iconfont" style="font-size: 4vw;">&#xe626;</i>
 						</td>
 						<td class="td-but-dashed">
-							<a href="https://www.aex88.com/page/m_regist.html#/?invite_code=400735&invite_type=10"><button style="font-size: 3vw;color: #FFF;background-color: #0099FF;border: 0px;border-radius: 10px;height: 5.5vw;">注册购买</button></a>
+							<button onclick="but()" style="font-size: 3vw;color: #FFF;background-color: #0099FF;border: 0px;border-radius: 10px;height: 5.5vw;">注册购买</button>
 						</td>
 					</tr>
 					<tr style="text-align: center;">
@@ -126,7 +126,7 @@
 			</div>
 			
 		</div>
-		<div id="languageEN" style="display: none;">
+		<div id="languageEN">
 			<div class="head-div">
 				<span class="head-text">Support exchange</span>
 				<!-- <button id="change">中英文切换</button> -->
@@ -161,7 +161,7 @@
 							<i class="iconfont" style="font-size: 4vw;">&#xe626;</i>
 						</td>
 						<td class="td-but-dashed"style="width: 8vw;" >
-							<a href="https://www.aex88.com/page/m_regist.html#/?invite_code=400735&invite_type=10"><button style="font-size: 3vw;color: #FFF;background-color: #0099FF;border: 0px;border-radius: 10px;height: 5.5vw;width: 18vw;">buy</button></a>
+							<button onclick="but()" style="font-size: 3vw;color: #FFF;background-color: #0099FF;border: 0px;border-radius: 10px;height: 5.5vw;width: 18vw;">buy</button>
 						</td>
 					</tr>
 					<tr style="text-align: center;font-size: 3.5vw;font-size: 3.5vw;">
@@ -208,9 +208,14 @@
 		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 		<script type="text/javascript" src="js/language.js"></script>
 		<script type="text/javascript">
+			function but(){
+				window.location.href = "https://www.aex88.com/page/m_regist.html#/?invite_code=400735&invite_type=10"
+			}
 			function func(){  
 			 var opt = $('.languageEN  option:selected').val();  
-			 if(opt=="EN"){
+			 if(opt!="EN"){
+				 document.getElementById('languageCN').style.display=""
+				 document.getElementById('languageEN').style.display="none"
 			    }else{
 			    	// window.location.reload();
 			 	window.location.href="exchange.html"
@@ -220,8 +225,7 @@
 			  var opt=$(".language").val();
 			  if(opt=="CN"){
 			  }else{
-				   document.getElementById('languageCN').style.display="none"
-				   document.getElementById('languageEN').style.display=""
+				  window.location.href="exchange.html"
 			  }
 			});
 			
