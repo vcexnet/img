@@ -15,7 +15,7 @@
 				font-size: 6.5vw;font-weight: bold;color: #FFF;line-height: 12vw;
 			}
 			.td-logo{
-				width: 33.3vw;border-bottom: 1px solid #b6b6b6;height: 10vw;font-weight: bold;
+				width: 80vw;border-bottom: 1px solid #b6b6b6;height: 10vw;font-weight: bold;
 			}
 			.td-logo-dashed{
 				width: 11vw;height: 10vw;
@@ -27,16 +27,6 @@
 			.td-but-dashed{
 				width: 16vw;height: 18vw;
 			}
-			.td-name{
-				width: 33.3vw;border-bottom: 1px solid #b6b6b6;
-			}
-			
-			.td-but{
-				width: 33.3vw;border-bottom: 1px solid #b6b6b6;
-			}
-			.td-img{
-				width: 22vw;border-radius: 25px;height: 8vw;
-			}
 		</style>
 	</head>
 	<body style="margin: 0;">
@@ -47,129 +37,123 @@
 		<div>
 			<table style="font-size: 4vw;">
 				<tr style="text-align: center;">
-					<td class="td-logo">支持网站和APP</td>
-					<td class="td-name"></td>
-					<td class="td-but"></td>
-					
+					<td class="td-logo">Ubuntu&debian install tutorial</td>
 				</tr>
-				<tr style="text-align: center;font-size: 3.5vw;">
-					<td style="height: 10vw;" class="td-logo-dashed">
-						<img src="img/52logo.png" class="td-img">
-						<br />
-						<span>吾爱破解</span>
-					</td>
-					<td class="td-name-dashed">
-						<img src="img/csdn.png" class="td-img">
-						<br />
-						<span>CSDN</span>
-					</td>
-					
-					<td class="td-but-dashed">
-						<img src="img/about_tianyalogo.jpg" class="td-img">
-						<br />
-						<span>天涯社区</span>
-					</td>
+				<tr style="text-align: left;font-size: 3.5vw;"><td>
+<span><b>Why build node?</b>If you think that the public earth coin node is unreliable and not fast enough, you can build your own node, and then manually connect your own node in the wallet "advanced settings" - > "earthcoin node"</br>
+1、First, buy Alibaba cloud or Tencent cloud server, the server requirements are not high (1core/2G/50GB/1MB, the cost is 99 yuan/year), open 35677 port in the security group;</br>
+2、Log in to the operating system with root, and then enter the following commands to install the dependent software. Enter each line of the following commands to execute;</span></td>
 				</tr>
-				<tr style="text-align: center;font-size: 3.5vw;">
-					<td style="height: 10vw;" class="td-logo-dashed">
-						<img src="img/威客logo.png" class="td-img">
-						<br />
-						<span>威客中国</span>
-					</td>
-					<td class="td-name-dashed">
-						<img src="img/bfyx.png" class="td-img">
-						<br />
-						<span>边锋游戏</span>
-					</td>
-					
-					<td class="td-but-dashed">
-						<img src="img/lytw.png" class="td-img">
-						<br />
-						<span>蓝月贪玩</span>
-					</td>
+				<tr style="text-align: left;font-size: 3.5vw;"><td>
+<span>sudo apt-get update</br>
+sudo apt-get upgrade</br>
+sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3 libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-test-dev libboost-thread-dev</br>
+sudo apt-get install software-properties-common</br>
+sudo add-apt-repository ppa:bitcoin/bitcoin</br>
+sudo apt-get update</br>
+sudo apt-get install libdb5.1-dev libdb5.1++-dev</br>
+sudo apt-get install libminiupnpc-dev</br>
+sudo apt-get install libzmq3-dev</br>
+sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler</span></td>
 				</tr>
-				<tr style="text-align: center;font-size: 3.5vw;">
-					<td style="height: 10vw;" class="td-logo-dashed">
-						<img src="img/rsx.jpeg" class="td-img">
-						<br />
-						<span>榕树下</span>
-					</td>
-					<td class="td-name-dashed">
-						<img src="img/wydy.jpg" class="td-img">
-						<br />
-						<span>无忧电影</span>
-					</td>
-					
-					<td class="td-but-dashed">
-						<img src="img/rrys.png" class="td-img">
-						<br />
-						<span>人人影视</span>
-					</td>
+				<tr style="text-align: left;font-size: 3.5vw;">
+				<td><span>3、To install the wallet source code, first locate it in the home folder</span></br>
+git clone https://github.com/Sandokaaan/Earthcoin.git</br>
+<b>Note: if this can't be downloaded, please download the latest source code directly to eaczg.com and upload it to the server with SFTP</b></br>
+cd Earthcoin</br>
+4、Install Berkeley DB</br>
+EARTHCOIN_ROOT=$(pwd)</br>
+BDB_PREFIX="${EARTHCOIN_ROOT}/db5"</br>
+mkdir -p $BDB_PREFIX</br>
+wget 'http://download.oracle.com/berkeley-db/db-5.1.29.NC.tar.gz'</br>
+echo '08238e59736d1aacdd47cfb8e68684c695516c37f4fbe1b8267dde58dc3a576c db-5.1.29.NC.tar.gz' | sha256sum -c</br>
+tar -xzvf db-5.1.29.NC.tar.gz</br>
+cd db-5.1.29.NC/build_unix/</br>
+../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX</br>
+make install</span></td>
 				</tr>
-				<tr style="text-align: center;font-size: 3.5vw;">
-					<td style="height: 10vw;" class="td-logo-dashed">
-						<img src="img/jx.png" class="td-img">
-						<br />
-						<span>模特直播</span>
-					</td>
-					<td class="td-name-dashed">
-						<img src="img/kj.png" class="td-img">
-						<br />
-						<span>空姐论坛</span>
-					</td>
-					
-					<td class="td-but-dashed">
-						<img src="img/ecy.png" class="td-img">
-						<br />
-						<span>二次元虫洞</span>
-					</td>
+				<tr style="text-align: left;font-size: 3.5vw;">
+				<td><span>5、Execute the source code compilation of earthcoin</br>
+cd $EARTHCOIN_ROOT</br>
+./autogen.sh</br>
+./configure LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS=“-I${BDB_PREFIX}/include/" --disable-tests --disable-man</br>
+make</br>
+6、运行earthcoin节点</br>
+cd src</br>
+./earthcoind -daemon</br>
+7、Check whether the earthcoin node is running</br>
+./earthcoin-cli -getinfo</span></td>
 				</tr>
 			</table>
 			<table style="font-size: 4vw;">
 				<tr style="text-align: center;">
-					<td class="td-logo" style="text-align: left;">支持应用</td>
-					<td class="td-name"></td>
-					<td class="td-but"></td>
+					<td class="td-logo">CentOS 8 install tutorial</td>
 				</tr>
+				<tr style="text-align: left;">
+					<td><span>1、Install software dependencies</br>
+sudo yum install -y gcc-c++ git make tar wget patch epel-release bzip2 automake autoconf  \
+libtool python2 python36 boost-devel openssl openssl-devel libevent-devel</span></td>
+				</tr>
+				 <tr style="text-align: left;">
+					<td><span>2、Download the source code of earthcoin and install dB</br>
+cd ~</br>
+git clone https://github.com/Sandokaaan/Earthcoin.git</br>
+cd ~/Earthcoin/depends</br>
+PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g') </br>
+make NO_QT=1</br>
+cd sources</br>
+tar -xvzf db*.NC.tar.gz</br>
+cd db*.NC</br>
+sed -i 's/__atomic_compare_exchange/__atomic_compare_exchange_db/g' ./src/dbinc/atomic.h</br>
+cd build_unix</br>
+../dist/configure --prefix=/usr/local --enable-cxx</br>
+make</br>
+sudo make install</span></td>
+				</tr>
+				<tr style="text-align: left;">
+					<td><span>3、Compile the source code of earthcoin</br>
+cd ~/Earthcoin</br>
+./autogen.sh</br>
+CONFIG_SITE=$PWD/depends/*linux*/share/config.site ./configure --without-gui --disable-tests --disable-man --prefix=/</br>
+make</br>
+cd src</br>
+strip earthcoind</br>
+strip earthcoin-cli</br>
+strip earthcoin-tx</span></td>
+				</tr> 
+				<tr style="text-align: left;">
+					<td><span>4、run earthcoin node</br>
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"</br>
+earthcoind --daemon</br>
+5、Check whether the earthcoin node is running</br>
+earthcoin-cli -getinfo</span></td>
+				</tr> 
+			</table>
+<table style="font-size: 4vw;">
 				<tr style="text-align: center;">
-					<td  style="height: 10vw;">
-						<img src="img/logo/discuz.png" style="width: 22vw;">
-					</td>
-					<td>
-						<img src="img/logo/wordpress.png"style="width: 22vw;">
-					</td>
-					
-					<td >
-						<img src="img/logo/dedecms.png"style="width: 22vw;">
-					</td>
+					<td>FreeBSD 11 install tutorial</td>
 				</tr>
-				 <tr style="text-align: center;">
-					<td style="height: 10vw;">
-						<img src="img/logo/thinkphp.png"style="width: 22vw;">
-					</td>
-					<td >
-						<img src="img/logo/destoon.png" style="width: 22vw;">
-					</td>
-					
-					<td >
-						<img src="img/logo/dgrj.png" style="width: 22vw;">
-					</td>
+				<tr style="text-align: left;">
+					<td><span>1、Install the dependent software and download the source code of earthcoin</br>
+pkg install autoconf automake boost-libs git gmake libevent libtool openssl pkgconf</br>
+git clone https://github.com/Sandokaaan/Earthcoin</span></td>
 				</tr>
-				<tr style="text-align: center;">
-					<td style="height: 10vw;">
-						<img src="img/logo/pg.png" style="width: 22vw;">
-					</td>
-					<td>
-						<img src="img/logo/qbrj.png"style="width: 22vw;" >
-					</td>
-					
-					<td >
-						<img src="img/logo/ecshop.png"style="width: 22vw;">
-					</td>
+				 <tr style="text-align: left;">
+					<td><b>Notice:Important: Use gmake (the non-GNU make will exit with an error).</b></td>
+				</tr>
+				<tr style="text-align: left;">
+					<td><span>./autogen.sh</br>
+
+./configure                  # to build with wallet OR</br>
+./configure --disable-wallet # to build without wallet</span></td>
+				</tr> 
+				<tr style="text-align: left;">
+					<td><span>gmake</br>
+					 Note: the default version of GDB is too old to debug multithreaded C + + programs. Please use version control to install the latest version of GDB package (for example, gdb7111)</span></td>
 				</tr> 
 			</table>
 			<div style="text-align: center;font-size: 3vw;color: #7e7e7e;padding-top: 10vw;">
-				<span>已经支持EACPAY的网站和应用请联系我们：dev@eacpay.com</span>
+				<span>For technical support, please contact us:dev@eacpay.com</span>
 			</div>
 			<div style="font-size: 3vw;color: #7e7e7e;padding-left: 35vw;padding-top: 7vw;padding-bottom: 2vw;" >
 				<span style="">EACPAY版本所有©2021</span>
