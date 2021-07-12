@@ -1,2 +1,2 @@
 # img
-eacpay's course
+eacpay mobile wallet course
